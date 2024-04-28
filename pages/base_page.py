@@ -24,7 +24,7 @@ class BasePage:
 
     @allure.step('Найти элемент и получить текст')
     def get_text(self, locator):
-        element = self.driver.find_element(*locator)
+        element = self.wait_and_find_element(locator)
         return element.text
 
     @allure.step('Дождаться смены страницы')
@@ -33,13 +33,12 @@ class BasePage:
 
     @allure.step('Скролл до элемента')
     def scroll(self, locator):
-        element = self.driver.find_element(*locator)
+        element = self.wait_and_find_element(locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     @allure.step('Кликаем по элементу с нужным локатором')
     def click(self, locator):
-        button = self.driver.find_element(*locator)
-        button.click()
+        self.wait_and_find_element(locator).click()
 
     @allure.step('Переключение драйвера на другую вкладку')
     def switch_driver(self):

@@ -33,6 +33,5 @@ class TestOrderButtons:
     def test_order_button_in_middle_opens_order_form(self, driver, accept_cookie):
         main_page = MainPage(driver)
         main_page.scroll(MainPage.order_button_in_middle)
-        main_page.wait_and_find_element(MainPage.order_button_in_middle)
         main_page.click_order_button_in_middle()
         assert main_page.get_current_url() == Urls.scooter_order

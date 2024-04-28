@@ -47,13 +47,11 @@ class MainPage(BasePage):
 
     @allure.step('Кликаем на кнопку заказать в хедере')
     def click_order_button_in_header(self):
-        button = self.wait_and_find_element(self.order_button_in_header)
-        button.click()
+        self.click(self.order_button_in_header)
 
     @allure.step('Кликаем на кнопку заказать в середине страницы')
     def click_order_button_in_middle(self):
-        button = self.wait_and_find_element(self.order_button_in_middle)
-        button.click()
+        self.click(self.order_button_in_middle)
 
 
 
