@@ -13,7 +13,7 @@ class TestAnswers:
     def test_questions_opens_successful(self, driver, accept_cookie, question, answer, answer_text):
         main_page = MainPage(driver)
         main_page.scroll(question)
-        main_page.wait_until_visible(question)
+        main_page.wait_and_find_element(question)
         main_page.click(question)
         assert main_page.get_text(answer) == answer_text
 
@@ -24,7 +24,7 @@ class TestOrderButtons:
     @allure.description("Клик по кнопке должен открывать страницу оформления заказа")
     def test_order_button_in_header_opens_order_form(self, driver, accept_cookie):
         main_page = MainPage(driver)
-        main_page.wait_until_visible(MainPage.order_button_in_header)
+        main_page.wait_and_find_element(MainPage.order_button_in_header)
         main_page.click_order_button_in_header()
         assert main_page.get_current_url() == Urls.scooter_order
 
@@ -33,6 +33,6 @@ class TestOrderButtons:
     def test_order_button_in_middle_opens_order_form(self, driver, accept_cookie):
         main_page = MainPage(driver)
         main_page.scroll(MainPage.order_button_in_middle)
-        main_page.wait_until_visible(MainPage.order_button_in_middle)
+        main_page.wait_and_find_element(MainPage.order_button_in_middle)
         main_page.click_order_button_in_middle()
         assert main_page.get_current_url() == Urls.scooter_order

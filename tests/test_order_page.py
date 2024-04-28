@@ -14,11 +14,11 @@ class TestOrder:
     def test_place_new_order_success(self, driver, accept_cookie, first_name, last_name, phone, address):
         order_page = OrderPage(driver)
         order_page.open_page(Urls.scooter_order)
-        order_page.wait_until_visible(OrderPage.first_name_field)
+        order_page.wait_and_find_element(OrderPage.first_name_field)
         order_page.set_personal_order_details(first_name, last_name, address, phone)
         order_page.set_metro_station_input()
         order_page.click_next_button()
-        order_page.wait_until_visible(OrderPage.start_rent_day_field)
+        order_page.wait_and_find_element(OrderPage.start_rent_day_field)
         order_page.set_start_day_input()
         order_page.rent_duration_input()
         order_page.color_input_both()

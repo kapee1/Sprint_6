@@ -31,12 +31,6 @@ class BasePage:
     def wait_until_url_changes(self, url):
         WebDriverWait(self.driver, 10).until(expected_conditions.url_to_be(url))
 
-
-    @allure.step('Дождаться появления элемента')
-    def wait_until_visible(self, element):
-        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(element))
-
-
     @allure.step('Скролл до элемента')
     def scroll(self, locator):
         element = self.driver.find_element(*locator)
