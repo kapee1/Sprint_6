@@ -12,7 +12,6 @@ class TestOrder:
                                                                        RegistrationData.registration_data_2])
     def test_place_new_order_success(self, driver, first_name, last_name, phone, address):
         order_page = OrderPage(driver)
-        order_page.click_to_accept_cookie()
         order_page.open_order_page()
         order_page.set_personal_order_details(first_name, last_name, address, phone)
         order_page.set_metro_station_input()
@@ -32,7 +31,6 @@ class TestRedirect:
     @allure.description("После клика на слово Яндекс в хедере со страницы оформления заказа")
     def test_redirect_to_dzen_from_header_logo(self, driver):
         order_page = OrderPage(driver)
-        order_page.click_to_accept_cookie()
         order_page.open_order_page()
         order_page.click_on_yandex_logo()
         order_page.switch_driver()
@@ -43,7 +41,6 @@ class TestRedirect:
     @allure.description("После клика на лого Самоката со страницы оформления заказа")
     def test_redirect_main_after_click_on_logo(self, driver):
         order_page = OrderPage(driver)
-        order_page.click_to_accept_cookie()
         order_page.open_order_page()
         order_page.click_on_scooters_logo()
         order_page.wait_until_url_changes(Urls.scooter_main)

@@ -6,8 +6,6 @@ from selenium.webdriver.common.by import By
 
 class BasePage:
 
-    cookie_button = (By.XPATH, "//*[contains(@class,'App_CookieButton__3cvqF')]")
-
     def __init__(self, driver):
         self.driver = driver
 
@@ -46,7 +44,5 @@ class BasePage:
     def switch_driver(self):
         self.driver.switch_to.window(self.driver.window_handles[-1])
 
-    @allure.step('Кликнуть по кнопке принятия куки')
-    def click_to_accept_cookie(self):
-        self.click(self.cookie_button)
+
 

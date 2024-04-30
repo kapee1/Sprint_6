@@ -44,6 +44,7 @@ class MainPage(BasePage):
 
     order_button_in_header = By.XPATH, ".//button[@class = 'Button_Button__ra12g']"
     order_button_in_middle = By.XPATH, ".//button[@class = 'Button_Button__ra12g Button_UltraBig__UU3Lp']"
+    cookie_button = (By.XPATH, "//*[contains(@class,'App_CookieButton__3cvqF')]")
 
     @allure.step('Кликаем на кнопку заказать в хедере')
     def click_order_button_in_header(self):
@@ -60,6 +61,10 @@ class MainPage(BasePage):
     @allure.step('Скролим до кнопки заказать в середине страницы')
     def scroll_to_order_button(self):
         self.scroll(self.order_button_in_middle)
+
+    @allure.step('Кликнуть по кнопке принятия куки')
+    def click_to_accept_cookie(self):
+        self.click(self.cookie_button)
 
 
 
