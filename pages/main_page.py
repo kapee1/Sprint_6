@@ -53,7 +53,13 @@ class MainPage(BasePage):
     def click_order_button_in_middle(self):
         self.click(self.order_button_in_middle)
 
+    @allure.step('Скролим до первого вопроса в списке')
+    def scroll_to_first_question(self):
+        self.scroll(self.question_1)
 
+    @allure.step('Скролим до кнопки заказать в середине страницы')
+    def scroll_to_order_button(self):
+        self.scroll(self.order_button_in_middle)
 
 
 
